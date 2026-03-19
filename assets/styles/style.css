@@ -2,26 +2,28 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+:root {
+  --card-height: 635px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  margin: calc((100vh - var(--card-height)) / 2) auto;
   width: 500px;
-  height: 645px;
+  height: var(--card-height);
   border: 2px solid black;
   border-radius: 15px;
   overflow: hidden;
-  align-items: flex-end;
+  text-align: center;
 }
 
 .main {
   padding: 20px 85px;
+}
+
+.location:before {
+  content: "📍";
 }
 
 h1,
@@ -38,17 +40,17 @@ p {
   box-shadow: 0 3px rgba(0, 0, 0, 0.125);
 }
 
-button {
-  background-color: #66b4ff;
-  color: white;
-  font-weight: 800;
-  font-size: 20px;
+.follow-btn {
   margin-top: 10px;
   padding: 5px 25px;
-  cursor: pointer;
   border: none;
   border-radius: 10px;
   box-shadow: 0 3px #22496dc8;
+  color: white;
+  background-color: #66b4ff;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 button:hover {
@@ -59,36 +61,35 @@ button:hover {
 
 .footer {
   display: flex;
+  margin-top: auto;
+  color: white;
   background-color: #1f344b;
-  align-self: flex-end;
 }
 
-a {
+.footer-section {
   display: flex;
   justify-content: center;
-  color: white;
-  text-decoration: none;
   width: calc(100% / 3);
 }
 
-a:nth-child(2) {
+.footer-section:nth-child(2) {
   border-right: 2px solid #294664;
   border-left: 2px solid #294664;
 }
 
-a:hover {
-  background-color: #294664;
-  transition: 0.3s;
+.footer-section-text > span:first-child {
+  color: #875f6a;
 }
 
-.footer-btn-text {
+.footer-section-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 5px;
-  padding: 15px 0;
 }
 
-.footer-btn-text p {
-  margin: 0;
+@media (max-height: 635px) {
+  .card {
+    margin: auto;
+  }
 }
